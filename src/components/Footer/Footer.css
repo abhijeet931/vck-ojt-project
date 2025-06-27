@@ -1,11 +1,11 @@
-
-.fot{
-  width: 94.6rem;
-  height: 70px;
+/* src/components/Footer/Footer.css */ 
+.footer {
+  background-color: #343A40; /* Match header background */
   color: white;
+  padding: 15px 20px;
   text-align: center;
-  border: 2px solid black;
-  background-color: #1a1a1a;
-  padding: auto;
-  
+  font-size: 0.9em;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1); /* Shadow at the top */
+  flex-shrink: 0; /* Prevents it from shrinking */
+  margin-top: auto; /* Pushes the footer to the bottom if content is short */
 }

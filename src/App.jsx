@@ -1,31 +1,58 @@
-import {  Route, BrowserRouter as Router, Routes } from "react-router-dom";
+// src/App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+
+import Footer from "./components/Footer/Footer";
+import ContactPage from "./pages/ContactPage";
+import "./styles/pages.css";
 import AboutPage from "./pages/AboutPage";
 import CoursesPage from "./pages/CoursesPage";
-import ContactPage from "./pages/ContactPage";
-import './styles/Pages.css';
-import Admissions from "./pages/Admissions";
-import ChatbotComponent from "./components/Chatbot/ChatbotComponent";
+import AdmissionsPage from "./pages/AdmissionsPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import Header from "./components/Header/Header";
+import DeveloperInfoPopup from "./components/DeveloperInfo/DeveloperInfoPopup";
+import { useState } from "react";
+import ChatbotComponent from "./components/Chatbot/ChatbotComponents";
 
-const App = ()=>{
-  return(
+ 
+function App() {
+  const [showPopup, setShowPopup] = useState(true);
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+  return (
+    <>
     <div>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage/>}/>
-          <Route path="/home" element={ <HomePage/>} />
-            <Route path="/about" element={ <AboutPage/>} />
-            <Route path="/courses" element={< CoursesPage/>}/>
-            <Route path="/contact" element={< ContactPage/>}/>
-            <Route path="/admissions" element={<Admissions/>}/>
-            </Routes>
-            
-            <ChatbotComponent/>
-
-      </Router>
-
-    </div>
-
-  )
+        {/* Your main application content */}
+        <DeveloperInfoPopup
+          show={showPopup}
+          onClose={handleClosePopup}
+          studentName="Abhijeet Dinkar Patade"
+          studentPhotoUrl="/public/images/name.jpg" // Path to their photo
+          uniqueMessage="Learned so much during this OJT! This app showcases my independent coding and deployment skills"
+        />
+      </div>
+      
+    <Router>
+      <div className="main-layout">
+       <Header />
+       <div className="content">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/admissions" element={<AdmissionsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
+        <ChatbotComponent/>
+        <Footer />
+      </div>
+  
+      
+    </Router>
+    </>
+  );
 }
 export default App;
