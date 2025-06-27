@@ -90,7 +90,7 @@
 
 .bot-avatar {
   background-color: #6C757D;
-  /* Grey for bot */
+  /* Grey for bot */c
   margin-right: 8px;
   /* Space between bot avatar and message */
 }
@@ -102,8 +102,7 @@
   /* Space between user avatar and message */
 }
 
-/* Adjust existing message bubble styles for better fit */
-.bot-message,
+/* Adjust existing message bubble styles for better fit */.bot-message,
 .user-message {
   max-width: calc(75% - 38px);
   /* Account for avatar width + margin */
