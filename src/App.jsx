@@ -1,7 +1,6 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-
 import Footer from "./components/Footer/Footer";
 import ContactPage from "./pages/ContactPage";
 import './styles/pages.css';
